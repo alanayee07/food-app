@@ -15,8 +15,18 @@ app.use((req, res, next) => {
  next();
 });
 
-app.use('/', (req, res) => {
-  res.send('hello')
- })
+app.get('/', (req, res) => {
+  res.send('Home Page')
+})
+
+const recipes = [
+  { name: 'nom1', content: 'some random stuff'},
+  { name: 'nom100', content: 'this is not nom'}
+]
+
+app.get('/recipes', (req, res) => {
+  console.log('recipes route');
+  res.json(recipes)
+})
 
 module.exports = app;

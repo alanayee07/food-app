@@ -30,7 +30,7 @@
     "presets": ["@babel/preset-env"]
   },
   "nodemonConfig": {
-    "exec": "npm run dev",
+    "exec": "yarn run dev",
     "watch": ["server/*", "public/*"],
     "ignore": ["**/__tests__/**", "*.test.js", "*.spec.js"]
   }

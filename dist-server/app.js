@@ -19,7 +19,18 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
-app.use('/', function (req, res) {
-  res.send('hello');
+app.get('/', function (req, res) {
+  res.send('Home Page');
+});
+var recipes = [{
+  name: 'nom1',
+  content: 'some random stuff'
+}, {
+  name: 'nom100',
+  content: 'this is not nom'
+}];
+app.get('/recipes', function (req, res) {
+  console.log('recipes route');
+  res.json(recipes);
 });
 module.exports = app;
