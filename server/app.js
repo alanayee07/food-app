@@ -14,9 +14,10 @@ app.use((req, res, next) => {
  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
  next();
 });
+console.log('alana');
 
 app.get('/', (req, res) => {
-  res.send('Home Page');
+  res.send('Home Page')
 })
 
 const recipes = [
@@ -84,7 +85,8 @@ const recipes = [
         quantity: '1 1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
-      }],
+      }
+],
     directions: ['Preheat oven to 350 degrees F.', 'Heat large oven safe skillet on medium-high heat and melt ghee and tallow. Once cooking fat is hot, add diced potatoes, season with the spices, and cook for about 5 minutes, stirring occasionally.', 'Once potatoes have started to soften, add diced onion and cook for another 5-10 minutes until potaotes start browning.', 'Add bacon and stir for about 5 minutes until bacon is about cooked thoroughly and potatoes are crisping up. Use the spatula or spoon to make open space in the skillet (create wells) for where the eggs will go.', 'Crack 1 egg into each well, ensuring to not move eggs/yolk around after they’ve been placed into the skillet. Sprinkle additional salt, pepper or parsley over eggs and place skillet into the oven.', 'Bake for 6-10 minutes, depending on how you prefer your eggs to be cooked', 'Remove from oven, top with any additional salt and pepper, parsley, optional green onion or hot sauce.'],
   },
   {
@@ -99,7 +101,7 @@ const recipes = [
     description: 'Whole30 breakfast dish!  Simple, easy, and throw everything together with some eggs.  Can use any combination of potatoes and peppers and your favorite type of meat/sausage for this breakfast dish!',
     ingredients: [
       {
-        item: 'peeled and diced sweet potato',
+        item: 'peeled and diced sweet potato,
         quantity: '1',
         cookingMeasure: 'large',
         type: 'produce'
@@ -201,7 +203,7 @@ const recipes = [
         quantity: '1/2',
         cookingMeasure: 'cup',
         type: 'pantry item'
-      }],
+      },
     directions: ['Preheat your oven to 400 degrees Fahrenheit.', 'Slice the potato into even round slices, using a sharp knife or mandoline. Place the slices on a baking sheet and bake for 30-40 minutes, or until cooked through. Note: thicker slices may take longer.', 'When the sweet potato is almost done, prepare the other ingredients.', 'Cook the Canadian bacon for about a minute on each side in a pan on medium heat. Set aside.', 'Bring a pot of water to a simmer. Create a vortex with a spoon and crack and poach the eggs for 3-4 minutes. Remove the eggs from the pot and place in a bowl.', 'Add the egg yolks, lemon juice, dijon, salt and cayenne pepper to a high powered blender and blend for about 5 seconds. Then slowly pour in the hot butter with the blender on medium high, until you have fully emulsified the sauce. Pour into a small bowl.', 'Once the potatoes have cooked, add to a plate and top with canadian bacon, a poached egg, and a drizzle of hollandaise sauce. Garnish with chopped parsley and serve immediately!']
   }
   // {
