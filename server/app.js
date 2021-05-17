@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 const recipes = [
   {
     name: 'One Skillet Breakfast Potatoes, Bacon & Eggs',
+    image: 'https://i.ibb.co/SXYdmnN/whole30-breakfast-hash.jpg',
     category: 'Breakfast',
     cuisine: 'American',
     lifestyle: ['Whole30', 'Paleo', 'Vegan', 'Gluten-Free', 'Dairy-Free'],
@@ -90,6 +91,7 @@ const recipes = [
   },
   {
     name: 'Whole30 Breakfast Hash',
+    image: 'https://i.ibb.co/9h7Rvfs/whole30-breakfast-hash.jpg',
     category: 'Breakfast',
     cuisine: 'American',
     lifestyle: ['Whole30', 'Paleo', 'Vegan', 'Gluten-Free', 'Dairy-Free'],
@@ -100,7 +102,7 @@ const recipes = [
     description: 'Whole30 breakfast dish!  Simple, easy, and throw everything together with some eggs.  Can use any combination of potatoes and peppers and your favorite type of meat/sausage for this breakfast dish!',
     ingredients: [
       {
-        item: 'peeled and diced sweet potato,
+        item: 'peeled and diced sweet potato',
         quantity: '1',
         cookingMeasure: 'large',
         type: 'produce'
@@ -140,6 +142,7 @@ const recipes = [
   },
   {
     name: 'Eggs Benny',
+    image: 'https://i.ibb.co/p3KL8BB/Healthy-Eggs-Benedict-5.jpg',
     category: 'Breakfast',
     cuisine: 'American',
     lifestyle: ['Whole30', 'Paleo', 'Gluten-Free', 'Dairy-Free'],
@@ -203,6 +206,7 @@ const recipes = [
         cookingMeasure: 'cup',
         type: 'pantry item'
       },
+    ],
     directions: ['Preheat your oven to 400 degrees Fahrenheit.', 'Slice the potato into even round slices, using a sharp knife or mandoline. Place the slices on a baking sheet and bake for 30-40 minutes, or until cooked through. Note: thicker slices may take longer.', 'When the sweet potato is almost done, prepare the other ingredients.', 'Cook the Canadian bacon for about a minute on each side in a pan on medium heat. Set aside.', 'Bring a pot of water to a simmer. Create a vortex with a spoon and crack and poach the eggs for 3-4 minutes. Remove the eggs from the pot and place in a bowl.', 'Add the egg yolks, lemon juice, dijon, salt and cayenne pepper to a high powered blender and blend for about 5 seconds. Then slowly pour in the hot butter with the blender on medium high, until you have fully emulsified the sauce. Pour into a small bowl.', 'Once the potatoes have cooked, add to a plate and top with canadian bacon, a poached egg, and a drizzle of hollandaise sauce. Garnish with chopped parsley and serve immediately!']
   }
   // {
