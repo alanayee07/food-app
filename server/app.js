@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 const recipes = [
   {
-    name: 'One Skillet Breakfast Potatoes, Bacon & Eggs',
+    name: 'One Skillet Potatoes, Bacon & Eggs',
     id: nanoid(),
     image: 'https://i.ibb.co/SXYdmnN/whole30-breakfast-hash.jpg',
     category: 'Breakfast',

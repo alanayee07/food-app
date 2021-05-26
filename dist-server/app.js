@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
   res.send('Home Page');
 });
 var recipes = [{
-  name: 'One Skillet Breakfast Potatoes, Bacon & Eggs',
+  name: 'One Skillet Potatoes, Bacon & Eggs',
   id: (0, _nanoid.nanoid)(),
   image: 'https://i.ibb.co/SXYdmnN/whole30-breakfast-hash.jpg',
   category: 'Breakfast',
