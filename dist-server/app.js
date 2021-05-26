@@ -6,6 +6,8 @@ var _bodyParser = _interopRequireDefault(require("body-parser"));
 
 var _path = _interopRequireDefault(require("path"));
 
+var _nanoid = require("nanoid");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
@@ -24,6 +26,7 @@ app.get('/', function (req, res) {
 });
 var recipes = [{
   name: 'One Skillet Breakfast Potatoes, Bacon & Eggs',
+  id: (0, _nanoid.nanoid)(),
   image: 'https://i.ibb.co/SXYdmnN/whole30-breakfast-hash.jpg',
   category: 'Breakfast',
   cuisine: 'American',
@@ -82,6 +85,7 @@ var recipes = [{
   directions: ['Preheat oven to 350 degrees F.', 'Heat large oven safe skillet on medium-high heat and melt ghee and tallow. Once cooking fat is hot, add diced potatoes, season with the spices, and cook for about 5 minutes, stirring occasionally.', 'Once potatoes have started to soften, add diced onion and cook for another 5-10 minutes until potaotes start browning.', 'Add bacon and stir for about 5 minutes until bacon is about cooked thoroughly and potatoes are crisping up. Use the spatula or spoon to make open space in the skillet (create wells) for where the eggs will go.', 'Crack 1 egg into each well, ensuring to not move eggs/yolk around after they’ve been placed into the skillet. Sprinkle additional salt, pepper or parsley over eggs and place skillet into the oven.', 'Bake for 6-10 minutes, depending on how you prefer your eggs to be cooked', 'Remove from oven, top with any additional salt and pepper, parsley, optional green onion or hot sauce.']
 }, {
   name: 'Whole30 Breakfast Hash',
+  id: (0, _nanoid.nanoid)(),
   image: 'https://i.ibb.co/9h7Rvfs/whole30-breakfast-hash.jpg',
   category: 'Breakfast',
   cuisine: 'American',
@@ -125,6 +129,7 @@ var recipes = [{
   directions: ['Preheat oven to 400 degrees.  Line a baking sheet with parchment paper.  Toss sweet potatoes, yellow potatoes, and olive oil together on the baking sheet, stirring to coat.  Season with salt and pepper if desired.  Bake for 20-25 minutes, until potatoes are tender and slightly browned.', 'Meanwhile, in a large skillet, brown sausage over medium high heat.  In the final few minutes of cooking, add the peppers and onions to the pan, cooking until softened.  Set aside.', 'Combine cooked potatoes with sausage/pepper mixture.  Serve immediately or cool and refrigerate.']
 }, {
   name: 'Eggs Benny',
+  id: (0, _nanoid.nanoid)(),
   image: 'https://i.ibb.co/p3KL8BB/Healthy-Eggs-Benedict-5.jpg',
   category: 'Breakfast',
   cuisine: 'American',
@@ -181,8 +186,10 @@ var recipes = [{
     type: 'pantry item'
   }],
   directions: ['Preheat your oven to 400 degrees Fahrenheit.', 'Slice the potato into even round slices, using a sharp knife or mandoline. Place the slices on a baking sheet and bake for 30-40 minutes, or until cooked through. Note: thicker slices may take longer.', 'When the sweet potato is almost done, prepare the other ingredients.', 'Cook the Canadian bacon for about a minute on each side in a pan on medium heat. Set aside.', 'Bring a pot of water to a simmer. Create a vortex with a spoon and crack and poach the eggs for 3-4 minutes. Remove the eggs from the pot and place in a bowl.', 'Add the egg yolks, lemon juice, dijon, salt and cayenne pepper to a high powered blender and blend for about 5 seconds. Then slowly pour in the hot butter with the blender on medium high, until you have fully emulsified the sauce. Pour into a small bowl.', 'Once the potatoes have cooked, add to a plate and top with canadian bacon, a poached egg, and a drizzle of hollandaise sauce. Garnish with chopped parsley and serve immediately!']
-} // {
+}, // {
 //   name: 'Eggs Shakshuka',
+//   id: nanoid(),
+//   image: 'https://i.ibb.co/2yC1CrL/Shakshuka-19.jpg',
 //   category: 'Breakfast',
 //   cuisine: 'North African and Middle Eastern',
 //   lifestyle: ['Whole30', 'Vegetarian', 'Gluten-Free', 'Dairy-Free'],
@@ -193,7 +200,81 @@ var recipes = [{
 //   ingredients: ['1 medium onion, diced', '1 red bell pepper, seeded and diced', '4 garlic cloves, finely chopped', '2 tsp paprika', '1 tsp cumin', '1/4 tsp chili powder', '1 28-oz can whole peeled tomatoes', '6 large eggs', 'salt', 'pepper', '1 small bunch fresh cilantro, chopped', '1 small bunch fresh parsley, chopped'],
 //   directions: ['Heat olive oil in a large sauté pan on medium heat. Add the chopped bell pepper and onion and cook for 5 minutes or until the onion becomes translucent.', 'Add garlic and spices and cook an additional minute.', 'Pour the can of tomatoes and juice into the pan and break down the tomatoes using a large spoon. Season with salt and pepper and bring the sauce to a simmer.', 'Use your large spoon to make small wells in the sauce and crack the eggs into each well. Cover the pan and cook for 5-8 minutes, or until the eggs are done to your liking.', 'Garnish with chopped cilantro and parsley.']
 // },
-// {
+{
+  name: 'No-Muffin Eggs Benny with Ghee Hollandaise',
+  id: (0, _nanoid.nanoid)(),
+  image: 'https://i.ibb.co/55swv9f/no-muffin-eggs-benny-with-ghee-hollandaise-84-web-1.jpg',
+  category: 'Breakfast',
+  cuisine: 'American',
+  lifestyle: ['Whole30', 'Paleo', 'Gluten-Free', 'Dairy-Free'],
+  prepTime: '15',
+  cookTime: '25',
+  totalTime: '40',
+  "yield": '6',
+  description: 'These Eggs Benedict are every bit as good as the classic versions served over an English muffin. Except we swap the muffin for sweet potato fritters, making this dish Whole30 compliant.',
+  ingredients: [{
+    item: 'ghee',
+    quantity: '1/2',
+    cookingMeasure: 'cup',
+    type: 'pantry item'
+  }, {
+    item: 'egg',
+    quantity: '3',
+    cookingMeasure: 'large',
+    type: 'dairy'
+  }, {
+    item: 'dijon mustard',
+    quantity: '1',
+    cookingMeasure: 'tsp',
+    type: 'pantry item'
+  }, {
+    item: 'lemon juice',
+    quantity: '1',
+    cookingMeasure: 'tsp',
+    type: 'produce'
+  }, {
+    item: 'sweet potato',
+    quantity: '4',
+    cookingMeasure: 'cups',
+    type: 'produce'
+  }, {
+    item: 'yellow onion',
+    quantity: '1',
+    cookingMeasure: 'small',
+    type: 'produce'
+  }, {
+    item: 'eggs',
+    quantity: '7',
+    cookingMeasure: 'large',
+    type: 'dairy'
+  }, {
+    item: 'arrowroot',
+    quantity: '2',
+    cookingMeasure: 'tbsp',
+    type: 'pantry item'
+  }, {
+    item: 'sea salt',
+    quantity: '1/2',
+    cookingMeasure: 'tsp',
+    type: 'pantry item'
+  }, {
+    item: 'avocado oil',
+    quantity: '1/4',
+    cookingMeasure: 'cup',
+    type: 'pantry item'
+  }, {
+    item: 'white vinegar',
+    quantity: '1',
+    cookingMeasure: 'tbsp',
+    type: 'pantry item'
+  }, {
+    item: 'fresh flat-leaf parsley',
+    quantity: '2',
+    cookingMeasure: 'tbsp',
+    type: 'produce'
+  }],
+  directions: ['Prepare hollandaise: In a small saucepan, melt ghee. In a blender, combine egg yolks, Dijon, 1 tbsp tepid water and lemon juice. With motor running, stream in ghee. The sauce should be thick enough to coat the back of a spoon. Season with salt and additional lemon juice. Pour into a bowl and cover to keep warm. Set aside.', 'Prepare fritters: Using a towel, squeeze out excess water from potatoes. In a large bowl, combine potato, onion, 1 egg, arrowroot and salt; mix thoroughly. In a heavy skillet, heat oil on high. Working in batches, place 2 tbsp mixture into oil per fritter. Reduce to medium heat and flatten out with a spatula. Cook fritters until golden brown, about 3 minutes per side. Transfer to a paper towel–lined plate.', 'Meanwhile, bring a medium pot of water to a simmer. Add vinegar. Crack remaining 6 eggs into small bowls or cups. Use a wooden spoon to stir simmering water carefully around the rim of pot to create a circular motion. Working in 2 batches, add eggs, 1 at a time, to center of pot. Return pot to a gentle simmer on low heat and cook eggs until set yet still runny in middle, about 3 minutes. Remove with a slotted spoon and drain on a paper towel. Repeat with remaining eggs.', 'On each serving plate, place 2 fritters and top with 1 egg. Drizzle sauce over top. Sprinkle with cayenne and parsley (if using).']
+} // {
 //   name: 'Spicy Pulled Pork Fried Eggs',
 //   category: 'Breakfast',
 //   cuisine: 'American',
