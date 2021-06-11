@@ -504,31 +504,54 @@ const recipes = [
   }
 ]
 
+// app.get('/recipes', (req, res) => {
+//   // server receives:
+//   console.log('queryObject: ', url.parse(req.url, true).query);
+
+//   // conditional
+
+//   res.json(recipes)
+// })
+
 app.get('/recipes', (req, res) => {
   // server receives:
   console.log('queryObject: ', url.parse(req.url, true).query);
-  res.json(recipes)
+
+  // conditional
+
+  let query = url.parse(req.url, true).query.searchText;
+
+  if(query !== null) {
+    res.json(filteredRecipes(recipes, query))
+  } else {
+    res.json(recipes);
+  }
+
+  // res.json(recipes)
 })
 
 
-const getData = (query) => {
-  if (query === '') return [];
-  return filteredRecipes(query);
-}
+// const getData = (query) => {
+//   if (query === '') return [];
+//   return filteredRecipes(query);
+// }
 
 // useEffect & listen
 
 const filteredRecipes = (arr, query) => {
-  var results = [];
-  if (query === '') return arr;
-  for (var recipe of recipes) {
-    for(var i=0; i < recipe.ingredients.length; i++) {
-      if(recipe.ingredients[i].item.includes(query)) {
-        results.push(recipe);
+  let results = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].ingredients) {
+      for(let j = 0; j < arr[i].ingredients.length; j++) {
+        if (arr[i].ingredients[j].item === query) {
+          results.push(arr[i]);
+        }
       }
     }
   }
   return results;
 }
+
 
 module.exports = app;

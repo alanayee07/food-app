@@ -12,12 +12,6 @@ var _url = _interopRequireDefault(require("url"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var app = (0, _express["default"])();
 app.use(_bodyParser["default"].urlencoded({
   extended: true
@@ -435,40 +429,42 @@ var recipes = [{
     type: 'produce'
   }],
   directions: ['In a large bowl, combine the beef and bacon with all the seasoning and spices. Be sure to adjust the red chili pepper flakes amount depending on your tolerance. Mix well with your hands and make sure everything has been dispersed as evenly as possible. Form 12 patties from the mixture about 1/2" to 3/4" thick. Set next to the stove.', 'Heat a large sauté pan over medium to medium-high heat and add half of the ghee. Once the pan has heated up for about 2 minutes, add the patties and fry on each side for 2-3 minutes or until cooked through and browned on the outside. Keep a close eye on them, as you do not want them to overcook!', 'You will most likely have to do this in two batches. Remove the patties from the pan and set aside and work on the rest of the patties, repeating the same steps.', 'In a small bowl, whisk together tahini sauce, water and lemon juice. Be sure to adjust the amount of water, based on how thick the sauce turns out. It is very forgiving!', 'Serve on top of a bed of cauliflower rice', 'Top off with fresh herbs and soft boiled eggs if you woud like.']
-}];
+}]; // app.get('/recipes', (req, res) => {
+//   // server receives:
+//   console.log('queryObject: ', url.parse(req.url, true).query);
+//   // conditional
+//   res.json(recipes)
+// })
+
 app.get('/recipes', function (req, res) {
   // server receives:
-  console.log('queryObject: ', _url["default"].parse(req.url, true).query);
-  res.json(recipes);
-});
+  console.log('queryObject: ', _url["default"].parse(req.url, true).query); // conditional
 
-var getData = function getData(query) {
-  if (query === '') return [];
-  return filteredRecipes(query);
-}; // useEffect & listen
+  var query = _url["default"].parse(req.url, true).query.searchText;
 
+  if (query !== null) {
+    res.json(filteredRecipes(recipes, query));
+  } else {
+    res.json(recipes);
+  } // res.json(recipes)
+
+}); // const getData = (query) => {
+//   if (query === '') return [];
+//   return filteredRecipes(query);
+// }
+// useEffect & listen
 
 var filteredRecipes = function filteredRecipes(arr, query) {
   var results = [];
-  if (query === '') return arr;
 
-  var _iterator = _createForOfIteratorHelper(recipes),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var recipe = _step.value;
-
-      for (var i = 0; i < recipe.ingredients.length; i++) {
-        if (recipe.ingredients[i].item.includes(query)) {
-          results.push(recipe);
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].ingredients) {
+      for (var j = 0; j < arr[i].ingredients.length; j++) {
+        if (arr[i].ingredients[j].item === query) {
+          results.push(arr[i]);
         }
       }
     }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
   }
 
   return results;
