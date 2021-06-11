@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import {nanoid} from 'nanoid'
+import url from 'url';
+
 
 const app = express();
 
@@ -503,8 +505,30 @@ const recipes = [
 ]
 
 app.get('/recipes', (req, res) => {
-  console.log('recipes route');
+  // server receives:
+  console.log('queryObject: ', url.parse(req.url, true).query);
   res.json(recipes)
 })
+
+
+const getData = (query) => {
+  if (query === '') return [];
+  return filteredRecipes(query);
+}
+
+// useEffect & listen
+
+const filteredRecipes = (arr, query) => {
+  var results = [];
+  if (query === '') return arr;
+  for (var recipe of recipes) {
+    for(var i=0; i < recipe.ingredients.length; i++) {
+      if(recipe.ingredients[i].item.includes(query)) {
+        results.push(recipe);
+      }
+    }
+  }
+  return results;
+}
 
 module.exports = app;
