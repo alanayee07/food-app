@@ -43,7 +43,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'Yukon potatoes',
+        item: 'potatoes',
         quantity: '4',
         cookingMeasure: 'cups',
         type: 'produce'
@@ -55,7 +55,7 @@ const recipes = [
         type: 'produce'
       },
       {
-        item: 'grass-fed bacon',
+        item: 'bacon',
         quantity: '1/2',
         cookingMeasure: 'package',
         type: 'deli'
@@ -85,7 +85,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'dried parsely',
+        item: 'parsely',
         quantity: '1 1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
@@ -107,31 +107,31 @@ const recipes = [
     description: 'Whole30 breakfast dish!  Simple, easy, and throw everything together with some eggs.  Can use any combination of potatoes and peppers and your favorite type of meat/sausage for this breakfast dish!',
     ingredients: [
       {
-        item: 'peeled and diced sweet potato',
+        item: 'sweet potato',
         quantity: '1',
         cookingMeasure: 'large',
         type: 'produce'
       },
       {
-        item: 'diced yukon gold potatoes',
+        item: 'potatoes',
         quantity: '3',
         cookingMeasure: 'small',
         type: 'produce'
       },
       {
-        item: 'compliant sausage',
+        item: 'sausage',
         quantity: '1/2',
         cookingMeasure: 'lb',
         type: 'meat'
       },
       {
-        item: 'diced bell pepper (any color)',
+        item: 'bell pepper',
         quantity: '1',
         cookingMeasure: 'cup',
         type: 'produce'
       },
       {
-        item: 'chopped onion',
+        item: 'onion',
         quantity: '1/2',
         cookingMeasure: 'small',
         type: 'pantry item'
@@ -159,7 +159,7 @@ const recipes = [
     description: 'Healthy eggs Benedict is your classic brunch recipe turned into a delicious sweet potato variation. You will love it!!',
     ingredients: [
       {
-        item: 'sweet potato cut into 1/4 inch thick slices',
+        item: 'sweet potato',
         quantity: '1',
         cookingMeasure: null,
         type: 'produce'
@@ -171,7 +171,7 @@ const recipes = [
         type: 'dairy'
       },
       {
-        item: 'compliant bacon',
+        item: 'bacon',
         quantity: '4',
         cookingMeasure: 'slices',
         type: 'meat'
@@ -183,7 +183,7 @@ const recipes = [
         type: 'dairy'
       },
       {
-        item: 'lemon juice',
+        item: 'lemon',
         quantity: '1/2',
         cookingMeasure: 'tbsp',
         type: 'produce'
@@ -207,7 +207,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'hot ghee',
+        item: 'ghee',
         quantity: '1/2',
         cookingMeasure: 'cup',
         type: 'pantry item'
@@ -240,7 +240,7 @@ const recipes = [
         type: 'produce'
       },
       {
-        item: 'garlic cloves',
+        item: 'garlic',
         quantity: '4',
         cookingMeasure: null,
         type: 'produce'
@@ -264,7 +264,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'whole peeled tomatoes',
+        item: 'peeled tomatoes',
         quantity: '1',
         cookingMeasure: '28-oz can',
         type: 'pantry item'
@@ -322,12 +322,6 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'egg',
-        quantity: '3',
-        cookingMeasure: 'large',
-        type: 'dairy'
-      },
-      {
         item: 'dijon mustard',
         quantity: '1',
         cookingMeasure: 'tsp',
@@ -353,7 +347,7 @@ const recipes = [
       },
       {
         item: 'eggs',
-        quantity: '7',
+        quantity: '10',
         cookingMeasure: 'large',
         type: 'dairy'
       },
@@ -382,7 +376,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'fresh flat-leaf parsley',
+        item: 'parsley',
         quantity: '2',
         cookingMeasure: 'tbsp',
         type: 'produce'
@@ -422,7 +416,7 @@ const recipes = [
         type: 'meat'
       },
       {
-        item: 'sea salt',
+        item: 'salt',
         quantity: '1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
@@ -434,7 +428,7 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'fresh sage',
+        item: 'sage',
         quantity: '3',
         cookingMeasure: 'tsp',
         type: 'produce'
@@ -446,19 +440,19 @@ const recipes = [
         type: 'pantry item'
       },
       {
-        item: 'dried rosemary',
+        item: 'rosemary',
         quantity: '1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
       },
       {
-        item: 'dried chives',
+        item: 'chives',
         quantity: '1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
       },
       {
-        item: 'dried thyme',
+        item: 'thyme',
         quantity: '1/2',
         cookingMeasure: 'tsp',
         type: 'pantry item'
@@ -494,7 +488,7 @@ const recipes = [
         type: 'produce'
       },
       {
-        item: 'fresh parsley',
+        item: 'parsley',
         quantity: '2',
         cookingMeasure: 'tbsp',
         type: 'produce'
@@ -521,7 +515,7 @@ app.get('/recipes', (req, res) => {
 
   let query = url.parse(req.url, true).query.searchText;
 
-  if(query !== null) {
+  if(query) {
     res.json(filteredRecipes(recipes, query))
   } else {
     res.json(recipes);
