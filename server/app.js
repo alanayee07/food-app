@@ -303,7 +303,7 @@ const recipes = [
     directions: ['Heat olive oil in a large sauté pan on medium heat. Add the chopped bell pepper and onion and cook for 5 minutes or until the onion becomes translucent.', 'Add garlic and spices and cook an additional minute.', 'Pour the can of tomatoes and juice into the pan and break down the tomatoes using a large spoon. Season with salt and pepper and bring the sauce to a simmer.', 'Use your large spoon to make small wells in the sauce and crack the eggs into each well. Cover the pan and cook for 5-8 minutes, or until the eggs are done to your liking.', 'Garnish with chopped cilantro and parsley.']
   },
   {
-    name: 'No-Muffin Eggs Benny with Ghee Hollandaise',
+    name: 'Eggs Benny w/ Ghee Hollandaise',
     id: nanoid(),
     image: 'https://i.ibb.co/55swv9f/no-muffin-eggs-benny-with-ghee-hollandaise-84-web-1.jpg',
     category: 'Breakfast',
@@ -546,6 +546,7 @@ const filteredRecipes = (arr, query) => {
   }
   return results;
 }
+
 
 
 module.exports = app;
